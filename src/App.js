@@ -1,19 +1,26 @@
 // src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Layout from './Layouts/Layout'; // Common layout with navigation
-import Products from './pages/Products'; // Import ProductsPage
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './Layouts/Layout';
+import ProductsPage from './pages/Products';
+import OrderPage from './pages/Order';
+import Home from './pages/HomePage';
+import { CartProvider } from './components/CartContext'; // Import CartProvider
+import './App.css';
 
 const App = () => {
   return (
-    <Router>
-      <Layout>
+    <CartProvider>
+      <Router>
         <Routes>
-          <Route path="/" element={<Navigate to="/products" />} /> {/* Redirect from root */}
-          <Route path="/products" element={<Products />} />  {/* Products path */}
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home/>} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/order/:productId" element={<OrderPage />} />
+          </Route>
         </Routes>
-      </Layout>
-    </Router>
+      </Router>
+    </CartProvider>
   );
 };
 

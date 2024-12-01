@@ -1,3 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 16px;
+}
+
 .App {
   text-align: center;
 }
@@ -15,6 +34,25 @@
   position: fixed;
   width: 100%;
   bottom: 0;
+}
+
+.carousel {
+  position: relative;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+}
+
+.carousel img {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.carousel-controls {
+  bottom: 10%;
 }
 
 .merch-cards {
@@ -37,4 +75,67 @@
 .card img {
   max-width: 100%;
   border-radius: 8px;
+}
+
+.productDetailsCard {
+  width: 60%;
+  position: relative;
+  margin-top: 20px;
+  background-color: bisque;
+}
+
+.productDetailResize {
+  display: flex;
+  /* background-color: red; */
+  /* background-color: aquamarine; */
+  justify-content: flex-end;
+}
+
+.productDetailResize1 {
+  position: relative;
+  display: flex;
+  /* background-color: green; */
+  justify-content: flex-start;
+}
+
+#accordion-nested-parent {
+  width: 60%;
+  height: 20;
+  border-radius: 10px;
+  background-color: #282c34;
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  text-align: center;
+  color: white;
+}
+
+.accordion-item {
+  border-bottom: 1px solid goldenrod; /* Adjust border for each accordion item */
+}
+
+.accordion-content {
+  height: 50px; /* Fixed height for content */
+  overflow-y: auto; /* Enable scroll behavior within the content */
+  background-color: white;
+  padding: 5px;
+  scrollbar-width: thin;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.accordion-content.hidden {
+  opacity: 0; /* Hide content smoothly */
+  pointer-events: none; /* Prevent interaction with hidden content */
+}
+
+.accordion-content.block {
+  opacity: 1;
+}
+
+. @media screen and (max-width: 767px) {
+  .productDetailResize,
+  .productDetailResize1 {
+    /* Ensure it's a flex container */
+    justify-content: center;
+  }
 }
