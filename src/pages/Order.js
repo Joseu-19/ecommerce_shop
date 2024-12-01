@@ -2,15 +2,16 @@ import React, { useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import useFetchProducts from '../components/UseFetchProducts';
 import MerchCardCarousel from '../components/MerchCarousel';
-import ProductDetail from '../components/ProductDetails';
+import ProductDetails from '../components/ProductDetails';
+import { useCart } from '../components/CartContext';
 
-const OrderPage = ({ onAddToCart }) => {
+const OrderPage = () => {
   const location = useLocation();
-  const { productId: paramProductId } = useParams(); // Get productId from the URL
-  const productId = location.state?.productId || paramProductId; // Use either state or URL param
+  const { productId: paramProductId } = useParams();
+  const productId = location.state?.productId || paramProductId;
 
-  // Use custom hook to get all products
   const { products, fetchProductDetails, productDetails, productImages } = useFetchProducts();
+  const { addToCart } = useCart(); // Access addToCart function from CartContext
 
   // Find the product directly from the products array using the productId
   const product = products.find((prod) => prod.id === parseInt(productId));
@@ -22,15 +23,10 @@ const OrderPage = ({ onAddToCart }) => {
     }
   }, [product, productId, fetchProductDetails]);
 
-  // Extract necessary details for ProductDetail component
-  const productName = product ? product.name : productDetails?.name;
-  const currentPrice = product ? product.price?.current?.text : productDetails?.price?.current?.text;
-
   return (
     <div className="order-page p-4">
-      {/* 1x2 Horizontal Grid Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-8">
-        {/* Carousel Component for Product Images (Left Side) */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2">
+        {/* Carousel Component for Product Images */}
         <div className="productDetailResize p-4">
           {productImages && productImages.length > 0 ? (
             <MerchCardCarousel images={productImages} />
@@ -39,14 +35,9 @@ const OrderPage = ({ onAddToCart }) => {
           )}
         </div>
 
-        {/* Product Detail Component and Accordion (Right Side) */}
-        <div className="productDetailResize1 p-4">
-          <ProductDetail
-            name={productName}
-            currentPrice={currentPrice}
-            product={product}
-            onAddToCart={onAddToCart}
-          />
+        {/* Product Detail Component */}
+        <div className="productDetailResize1">
+          <ProductDetails product={product || productDetails} onAddToCart={addToCart} />
         </div>
       </div>
     </div>

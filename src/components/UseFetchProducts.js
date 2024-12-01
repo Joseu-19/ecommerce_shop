@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useFetchProducts = (initialOffset = 0, limit = 1, categoryId = '8799') => {
+const useFetchProducts = (initialOffset = 0, limit = 20, categoryId = '13491') => {
   const [products, setProducts] = useState([]);
   const [offset, setOffset] = useState(initialOffset);
-  const [productDetails, setProductDetails] = useState(null);
   const [productImages, setProductImages] = useState([]); // State to hold additional images
 
   const fetchProducts = async (newOffset) => {
@@ -46,8 +45,6 @@ const useFetchProducts = (initialOffset = 0, limit = 1, categoryId = '8799') => 
         },
       });
 
-      setProductDetails(response.data);
-
       // Extract additional images from the media object
       const images = response.data?.media?.images?.map((image) => `https://${image.url}`);
       setProductImages(images || []); // Set product images or an empty array if not available
@@ -64,7 +61,6 @@ const useFetchProducts = (initialOffset = 0, limit = 1, categoryId = '8799') => 
 
   return {
     products,
-    productDetails,
     productImages, // Include product images in the return object
     fetchMore: () => {
       const newOffset = offset + limit;

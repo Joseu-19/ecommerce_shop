@@ -20,7 +20,15 @@ const MerchCard = ({ product }) => {
   // Handle add to cart button click
   const handleAddToCart = (event) => {
     event.stopPropagation(); // Prevent navigating to the Order page
-    addToCart(product);
+
+    // Add product to the cart with necessary details
+    const productToAdd = {
+      id: product.id,
+      name: product.name,
+      currentPrice: product.price?.current?.text,
+      imageUrl: `https://${product.imageUrl.replace(/^https?:\/\//, '')}`,
+    };
+    addToCart(productToAdd);
   };
 
   return (

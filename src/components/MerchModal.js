@@ -1,4 +1,3 @@
-// src/components/MerchModal.js
 import React from 'react';
 
 const MerchModal = ({ isOpen, items, onClose }) => {
@@ -6,17 +5,19 @@ const MerchModal = ({ isOpen, items, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded-lg max-w-md w-full">
+      <div className="bg-white p-6 rounded-lg max-w-md w-full overflow-y-scroll max-h-lvh">
         <h2 className="text-xl font-bold mb-4">Shopping Cart</h2>
         {items.length === 0 ? (
           <p>No items in the cart</p>
         ) : (
           items.map((item, index) => (
             <div key={index} className="flex items-center space-x-4 mb-4">
-              <img src={item.imageUrl} alt={item.name} className="w-16 h-16 object-cover rounded-md" />
+              {item.imageUrl && (
+                <img src={item.imageUrl} alt={item.name} className="w-16 h-16 object-cover rounded-md" />
+              )}
               <div>
                 <p className="font-medium">{item.name}</p>
-                <p>{item.currentPrice}</p>
+                <p>{item.currentPrice || 'Price unavailable'}</p>
               </div>
             </div>
           ))

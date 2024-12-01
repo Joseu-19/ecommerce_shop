@@ -1,11 +1,19 @@
-// src/pages/Home.js
 import React from 'react';
+import Hero from '../components/Hero'; // Assuming you already have a Hero component
 
 const Home = () => {
   return (
     <div>
-      <h1>Welcome to Our Store!</h1>
-      <p>Explore our products by clicking on the Products link above.</p>
+      {/* Hero Section */}
+      <Hero />
+
+      {/* Main Content */}
+      <div className="home-content text-center p-8">
+        <h1 className="text-4xl font-bold mb-4">Welcome to BESOS.CO</h1>
+        <p className="text-lg text-gray-700 ">
+          This is a mock e-commerce store made with the ASOS API. Fun fact the official ASOS website fetches its data from the same API. 
+        </p>
+      </div>
     </div>
   );
 };

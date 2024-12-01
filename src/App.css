@@ -27,18 +27,14 @@ p {
   color: white;
 }
 
-.App-footer {
-  background-color: #282c34;
-  padding: 10px;
-  color: white;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+.hero-image{
+  background-attachment: fixed;
 }
 
 .carousel {
   position: relative;
   width: 500px;
+  background-color: red;
   border-radius: 10px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
     rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
@@ -78,7 +74,8 @@ p {
 }
 
 .productDetailsCard {
-  width: 60%;
+  width:fit-content;
+  height: 100%;
   position: relative;
   margin-top: 20px;
   background-color: bisque;
@@ -99,13 +96,10 @@ p {
 }
 
 #accordion-nested-parent {
-  width: 60%;
-  height: 20;
+  width:fit-content;
   border-radius: 10px;
   background-color: #282c34;
-  position: absolute;
-  top: 80px;
-  right: 40px;
+  position: relative;
   text-align: center;
   color: white;
 }
@@ -132,10 +126,3 @@ p {
   opacity: 1;
 }
 
-. @media screen and (max-width: 767px) {
-  .productDetailResize,
-  .productDetailResize1 {
-    /* Ensure it's a flex container */
-    justify-content: center;
-  }
-}

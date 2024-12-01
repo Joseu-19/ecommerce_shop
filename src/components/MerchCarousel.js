@@ -21,11 +21,9 @@ const MerchCardCarousel = ({ images }) => {
   return (
     <div className="carousel">
       {/* Image Container */}
-      <div className=" bg-black  h-full flex items-center justify-center relative">
+      <div className=" h-full flex items-center justify-center relative">
         <img
-          src={images[currentIndex]}
-          className="object-cover w-auto h-full"
-        />
+          src={images[currentIndex]}/>
       </div>
 
       {/* Navigation Controls */}

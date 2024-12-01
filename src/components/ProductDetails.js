@@ -2,14 +2,16 @@ import React from 'react';
 import AddToCartButton from './AddtoCartButton';
 import Accordion from '../components/Accordion';
 
+const ProductDetails = ({ product, onAddToCart }) => {
+  if (!product) {
+    return <p>Loading product details...</p>;
+  }
 
-// Assuming you've already created this button component
-const ProductDetail = ({ name, currentPrice, product, onAddToCart }) => {
-  // Define the accordion data here
+  // Accordion data
   const accordionData = [
     {
-      title: 'Product Description',
-      content: product?.description || 'No description available', // Assuming product has a description property
+      title: 'Care Instructions',
+      content: 'Wash with cold water and dry with warm air.',
     },
     {
       title: 'Shipping Information',
@@ -21,17 +23,26 @@ const ProductDetail = ({ name, currentPrice, product, onAddToCart }) => {
     },
   ];
 
+  // Create product object with additional image URL for the cart
+  const productWithImage = {
+    ...product,
+    imageUrl: product.media?.images?.[0]?.url
+      ? `https://${product.media.images[0]}`
+      : 'https://via.placeholder.com/150',
+    currentPrice: product.price?.current?.text || 'Price unavailable',
+  };
+
   return (
     <div className="productDetailsCard bg-white p-6 rounded-lg shadow-md max-w-lg mx-auto">
       {/* Product Name */}
       <h1 className="text-2xl font-bold text-gray-800 mb-4">
-        {name || 'No name available'}
+        {product?.name || 'No name available'}
       </h1>
 
       {/* Price Information */}
       <div className="flex items-center space-x-4 mb-4">
         <p className="text-xl font-semibold text-black">
-          {currentPrice ? `Current Price: ${currentPrice}` : 'Price unavailable'}
+          {productWithImage.currentPrice}
         </p>
       </div>
 
@@ -39,9 +50,9 @@ const ProductDetail = ({ name, currentPrice, product, onAddToCart }) => {
       <Accordion data={accordionData} />
 
       {/* Add to Cart Button */}
-      <AddToCartButton product={product} onAddToCart={onAddToCart} />
+      <AddToCartButton product={productWithImage} onAddToCart={onAddToCart} />
     </div>
   );
 };
 
-export default ProductDetail;
+export default ProductDetails;

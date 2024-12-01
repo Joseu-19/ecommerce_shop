@@ -1,9 +1,8 @@
-// src/components/Layout.js
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '../components/Header';
+import Header from '../components/Header'; // Assuming the Header component is in the components folder
 import NavBar from '../components/NavBar';
-import { useCart } from '../components/CartContext';
+import Footer from '../components/Footer'; // Import the Footer component
 
 const Layout = () => {
   const navItems = [
@@ -11,20 +10,21 @@ const Layout = () => {
     { label: "Shop", href: "/products" },
   ];
 
-  const { cartItems } = useCart();
-
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       {/* Header with background image and title */}
       <Header backgroundPic="background-image.jpg" title="Welcome to BEsos" />
 
       {/* NavBar */}
-      <NavBar logoSrc="./images/Logo.png" navItems={navItems} cartCount={cartItems.length} />
+      <NavBar logoSrc="./images/Logo.png" navItems={navItems} />
 
       {/* Main content rendered below the NavBar */}
-      <main>
-        <Outlet />
+      <main className="flex-grow">
+        <Outlet /> {/* This is where nested routes like Home and Products will be rendered */}
       </main>
+
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 };
