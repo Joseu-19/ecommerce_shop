@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+BESOS.co - A Mock E-Shop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project Overview
+BESOS.co is a mock e-commerce store where users can browse and explore clothing items from the official ASOS store.
 
-## Available Scripts
+Tools and Technologies Used
+React:
+Used to build the front-end of the application with reusable UI components.
 
-In the project directory, you can run:
+Axios:
+Used to make HTTP requests to the ASOS API for fetching product data.
 
-### `npm start`
+React Router:
+Manages navigation between different pages, such as the products list, individual product details, and the home page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Context API:
+Used for state management to maintain the shopping cart (CartContext component), allowing the cart to be accessible globally throughout the application.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+How React Hooks and Props were Used
 
-### `npm test`
+Props were used to pass product data to the MerchCard component on the Products page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Event handlers, such as onAddToCart, were passed as props to child components like AddToCartButton to manage cart interactions.
 
-### `npm run build`
+React Hooks:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+useState: Used for managing local component states, such as cart items, modal visibility, and product data.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+useEffect: Used for performing side effects, such as fetching data from the API when a component is first rendered.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Custom Hook useFetchProducts This hook encapsulates the logic for fetching data from the API. It returns the products array, a fetchMore function for pagination, and handles any loading or error states. Using a custom hook allowed for a clean and reusable approach to data fetching.
 
-### `npm run eject`
+Component Overview
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+MerchCard: Displays product information, including name, price, and image. Clicking on it navigates to the product details page.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This component also integrates the "Add to Cart" button.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ProductDetails: Shows detailed product information, including the name, price, and care instructions.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The component also contains an accordion component for additional product details.
 
-## Learn More
+MerchModal: Displays the current items in the shopping cart in a modal view.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+AddToCartButton: A reusable button component that allows users to add items to their cart.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Layout
 
-### Code Splitting
+The application uses a common Layout component that sets the layout for components present on all pages, such as the navbar, header, and footer.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The Outlet component from React Router was used to render nested components, ensuring a consistent layout across the app.
 
-### Analyzing the Bundle Size
+Accordion Data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The accordion data for product details such as shipping and return policy is hardcoded in the ProductDetail component. I decided to take this approach because I did not want to run into issues with the API since I have a request limit
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To run this project simply clone it
+cd
+npm install.
