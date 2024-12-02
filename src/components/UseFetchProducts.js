@@ -51,7 +51,7 @@ const useFetchProducts = (initialOffset = 0, limit = 20, categoryId = '13491') =
 
     } catch (error) {
       console.error('Error fetching product details:', error);
-      console.error('Error details:', JSON.stringify(error, null, 2)); // Pretty-print for readability
+      console.error('Error details:', JSON.stringify(error, null, 2)); 
     }
   };
 

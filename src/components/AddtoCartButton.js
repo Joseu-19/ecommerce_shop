@@ -2,6 +2,7 @@ import React from 'react';
 
 const AddToCartButton = ({ product, onAddToCart }) => {
   const handleAddToCart = (event) => {
+    
     // Stop the event from bubbling up to the parent card
     event.stopPropagation();
 

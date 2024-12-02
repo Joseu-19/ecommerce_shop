@@ -27,7 +27,7 @@ p {
   color: white;
 }
 
-.hero-image{
+.hero-image {
   background-attachment: fixed;
 }
 
@@ -74,7 +74,7 @@ p {
 }
 
 .productDetailsCard {
-  width:fit-content;
+  width: fit-content;
   height: 100%;
   position: relative;
   margin-top: 20px;
@@ -91,12 +91,11 @@ p {
 .productDetailResize1 {
   position: relative;
   display: flex;
-  /* background-color: green; */
   justify-content: flex-start;
 }
 
 #accordion-nested-parent {
-  width:fit-content;
+  width: fit-content;
   border-radius: 10px;
   background-color: #282c34;
   position: relative;
@@ -105,12 +104,12 @@ p {
 }
 
 .accordion-item {
-  border-bottom: 1px solid goldenrod; /* Adjust border for each accordion item */
+  border-bottom: 1px solid goldenrod;
 }
 
 .accordion-content {
-  height: 50px; /* Fixed height for content */
-  overflow-y: auto; /* Enable scroll behavior within the content */
+  height: 50px;
+  overflow-y: auto;
   background-color: white;
   padding: 5px;
   scrollbar-width: thin;
@@ -118,11 +117,10 @@ p {
 }
 
 .accordion-content.hidden {
-  opacity: 0; /* Hide content smoothly */
-  pointer-events: none; /* Prevent interaction with hidden content */
+  opacity: 0;
+  pointer-events: none;
 }
 
 .accordion-content.block {
   opacity: 1;
 }
-

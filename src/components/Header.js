@@ -3,7 +3,9 @@ import { useCart } from '../components/CartContext';
 import MerchModal from './MerchModal';
 
 const Header = ({ backgroundPic, }) => {
-  const { cartItems } = useCart(); // Access cart items from context
+  
+  // Access cart items from context
+  const { cartItems } = useCart(); 
   const [isModalOpen, setIsModalOpen] = useState(false);
   
 

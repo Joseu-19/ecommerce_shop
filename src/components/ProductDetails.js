@@ -23,7 +23,6 @@ const ProductDetails = ({ product, onAddToCart }) => {
     },
   ];
 
-  // Create product object with additional image URL for the cart
   const imageUrl = product.imageUrl
     ? `https://${product.imageUrl.replace(/^https?:\/\//, '')}`
     : 'https://via.placeholder.com/150';

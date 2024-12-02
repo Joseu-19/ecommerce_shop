@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../components/CartContext';
-import AddToCartButton from './AddtoCartButton'; // Import AddToCartButton
+import AddToCartButton from './AddtoCartButton';
 
 const MerchCard = ({ product }) => {
   const navigate = useNavigate();
@@ -20,12 +20,13 @@ const MerchCard = ({ product }) => {
 
   // Handle add to cart button click
   const handleAddToCart = (productToAdd) => {
+
     // Add product to the cart with necessary details
     const item = {
       id: productToAdd.id,
       name: productToAdd.name,
       currentPrice: productToAdd.price?.current?.text,
-      imageUrl: `https://${productToAdd.imageUrl.replace(/^https?:\/\//, '')}`,
+      imageUrl: `https://${productToAdd.imageUrl.replace(/^https?:\/\//, '')}`, //Reformating the url
     };
     addToCart(item);
   };

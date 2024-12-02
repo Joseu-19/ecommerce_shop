@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
+// State to track which panel is open
 const Accordion = ({ data }) => {
-  const [openIndex, setOpenIndex] = useState(null); // State to track which panel is open
+  const [openIndex, setOpenIndex] = useState(null); 
 
-  // Toggle the accordion panel
+  // Toggle the accordion
   const handleToggle = (index) => {
-    setOpenIndex(openIndex === index ? null : index); // Open/close the current panel
+    setOpenIndex(openIndex === index ? null : index); // Open/close
   };
 
   return (

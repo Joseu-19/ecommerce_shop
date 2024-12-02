@@ -13,7 +13,7 @@ const OrderPage = () => {
   const { products, fetchProductDetails, productDetails, productImages } = useFetchProducts();
   const { addToCart } = useCart(); // Access addToCart function from CartContext
 
-  // Find the product directly from the products array using the productId
+  // Find the product from the products array using the productId
   const product = products.find((prod) => prod.id === parseInt(productId));
 
   // If product not found in the local products state, fetch details from API

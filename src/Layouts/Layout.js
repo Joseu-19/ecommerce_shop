@@ -1,8 +1,8 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '../components/Header'; // Assuming the Header component is in the components folder
+import Header from '../components/Header'; 
 import NavBar from '../components/NavBar';
-import Footer from '../components/Footer'; // Import the Footer component
+import Footer from '../components/Footer'; 
 
 const Layout = () => {
   const navItems = [
