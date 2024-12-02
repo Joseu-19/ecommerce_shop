@@ -24,11 +24,13 @@ const ProductDetails = ({ product, onAddToCart }) => {
   ];
 
   // Create product object with additional image URL for the cart
+  const imageUrl = product.imageUrl
+    ? `https://${product.imageUrl.replace(/^https?:\/\//, '')}`
+    : 'https://via.placeholder.com/150';
+
   const productWithImage = {
     ...product,
-    imageUrl: product.media?.images?.[0]?.url
-      ? `https://${product.media.images[0]}`
-      : 'https://via.placeholder.com/150',
+    imageUrl,
     currentPrice: product.price?.current?.text || 'Price unavailable',
   };
 

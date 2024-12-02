@@ -50,9 +50,11 @@ const NavBar = ({ logoSrc, navItems }) => {
             {/* Cart Link to Open Cart Modal */}
             <li className="text-black hover:text-gray-900 hover:text-lg cursor-pointer flex items-center">
               <span onClick={() => setIsCartOpen(true)} className="flex items-center">
+
                 <img src="./images/shopping_bag.png" alt="Cart" className="h-8 w-8 mr-2" />
                 ({cartItems.length})
               </span>
+              
             </li>
           </ul>
         </div>

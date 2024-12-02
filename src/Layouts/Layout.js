@@ -12,18 +12,15 @@ const Layout = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Header with background image and title */}
+     
       <Header backgroundPic="background-image.jpg" title="Welcome to BEsos" />
-
-      {/* NavBar */}
+      
       <NavBar logoSrc="./images/Logo.png" navItems={navItems} />
 
-      {/* Main content rendered below the NavBar */}
       <main className="flex-grow">
-        <Outlet /> {/* This is where nested routes like Home and Products will be rendered */}
+        <Outlet /> {/* Outlet is used to render more than one component at the same time */}
       </main>
 
-      {/* Footer Section */}
       <Footer />
     </div>
   );

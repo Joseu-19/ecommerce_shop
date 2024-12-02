@@ -45,7 +45,7 @@ const useFetchProducts = (initialOffset = 0, limit = 20, categoryId = '13491') =
         },
       });
 
-      // Extract additional images from the media object
+      // Pull extra images for carousel
       const images = response.data?.media?.images?.map((image) => `https://${image.url}`);
       setProductImages(images || []); // Set product images or an empty array if not available
 
